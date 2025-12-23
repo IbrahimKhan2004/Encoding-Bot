@@ -3,6 +3,7 @@ import dns.resolver
 from pyrogram import idle
 
 from . import app, log
+from .web import start_web_server
 
 dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
 dns.resolver.default_resolver.nameservers = [
@@ -10,6 +11,7 @@ dns.resolver.default_resolver.nameservers = [
 
 
 async def main():
+    start_web_server()
     await app.start()
     await app.send_message(chat_id=log, text=f'<b>Bot Started! @{(await app.get_me()).username}</b>')
     await idle()

@@ -1,3 +1,7 @@
-IT WONT WORK RAM WILL BE FULL 
-
-IF PREMIUM USE DIRECT DOCKER
+services:
+  - type: web
+    name: video-encoder
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
